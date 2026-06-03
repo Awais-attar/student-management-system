@@ -479,24 +479,23 @@ def register():
         password = request.form['password']
         teacher_code = request.form['teacher_code']
 
-       image = request.files.get(
+        image = request.files.get(
     'teacher_image'
 )
 
-filename = "default.png"
+        filename = "default.png"
 
-if image and image.filename != "":
-
-    filename = secure_filename(
+        if image and image.filename != "":
+            filename = secure_filename(
         image.filename
     )
 
-    os.makedirs(
+            os.makedirs(
         app.config['UPLOAD_FOLDER'],
         exist_ok=True
     )
 
-    image.save(
+            image.save(
         os.path.join(
             app.config['UPLOAD_FOLDER'],
             filename
