@@ -1,19 +1,11 @@
 class Config:
 
-    # ==================================
-    # SECRET KEY
-    # ==================================
 
-    SECRET_KEY = "student_secret_key"
+SECRET_KEY = "student_secret_key"
 
-    # ==================================
-    # SQLITE DATABASE
-    # ==================================
+SQLALCHEMY_DATABASE_URI = (
+    "mysql+pymysql://root:1111@localhost/student_management"
+)
 
-    SQLALCHEMY_DATABASE_URI = "sqlite:///school.db"
+SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    # ==================================
-    # SQLALCHEMY TRACK MODIFICATIONS
-    # ==================================
-
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
