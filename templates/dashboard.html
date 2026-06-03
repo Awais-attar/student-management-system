@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/dashboard.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>SMS</h2>
+
+        <div class="teacher-profile">
+
+    <img
+    src="{{ url_for(
+    'static',
+    filename='uploads/' + session['teacher_image']) }}">
+
+    <h3>
+
+        {{ session['teacher_name'] }}
+
+    </h3>
+
+    <p>
+
+        ID:
+        {{ session['teacher_code'] }}
+
+    </p>
+
+</div>
+
+        <ul>
+
+            <li>
+                <a href="/dashboard">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    Dashboard
+
+                </a>
+            </li>
+
+            <li>
+                <a href="/students">
+
+                    <i class="fa-solid fa-user-graduate"></i>
+
+                    Students
+
+                </a>
+            </li>
+
+            <li>
+                <a href="/attendance">
+
+                    <i class="fa-solid fa-calendar-check"></i>
+
+                    Attendance
+
+                </a>
+            </li>
+
+            <li>
+                <a href="/timetable">
+
+                    <i class="fa-solid fa-clock"></i>
+
+                    Timetable
+
+                </a>
+            </li>
+
+            <li>
+                <a href="/exam-report">
+
+                    <i class="fa-solid fa-book"></i>
+
+                    Exams
+
+                </a>
+            </li>
+
+            <li>
+                <a href="/attendance-report">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    Reports
+
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="main-content">
+
+        <!-- Topbar -->
+
+        <div class="topbar">
+
+            <div>
+
+                <h1>Teacher Dashboard</h1>
+
+                <p class="dashboard-date">
+
+                    {{ today_date }}
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <button id="themeToggle"
+                class="theme-btn">
+
+                    🌙 Toggle Theme
+
+                </button>
+
+                <a href="/logout"
+                class="logout-btn">
+
+                    Logout
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Dashboard Cards -->
+
+        <div class="cards">
+
+            <a href="/add-student" class="card">
+
+                <h3>Add Student</h3>
+
+                <p>➕</p>
+
+            </a>
+
+            <a href="/students" class="card">
+
+                <h3>View Students</h3>
+
+                <p>👨‍🎓</p>
+
+            </a>
+
+            <a href="/attendance" class="card">
+
+                <h3>Attendance</h3>
+
+                <p>📅</p>
+
+            </a>
+
+            <a href="/attendance-report" class="card">
+
+                <h3>Attendance Report</h3>
+
+                <p>📊</p>
+
+            </a>
+
+            <a href="/add-class" class="card">
+
+                <h3>Add Class</h3>
+
+                <p>🏫</p>
+
+            </a>
+
+            <a href="/classes" class="card">
+
+                <h3>View Classes</h3>
+
+                <p>📚</p>
+
+            </a>
+
+            <a href="/add-subject" class="card">
+
+                <h3>Add Subject</h3>
+
+                <p>📘</p>
+
+            </a>
+
+            <a href="/subjects" class="card">
+
+                <h3>View Subjects</h3>
+
+                <p>📖</p>
+
+            </a>
+
+            <a href="/add-timetable" class="card">
+
+                <h3>Add Timetable</h3>
+
+                <p>⏰</p>
+
+            </a>
+
+            <a href="/timetable" class="card">
+
+                <h3>View Timetable</h3>
+
+                <p>🕒</p>
+
+            </a>
+
+            <a href="/add-marks" class="card">
+
+                <h3>Add Marks</h3>
+
+                <p>📝</p>
+
+            </a>
+
+            <a href="/exam-report" class="card">
+
+                <h3>Exam Report</h3>
+
+                <p>📈</p>
+
+            </a>
+
+            <a href="/add-upcoming-exam" class="card">
+
+                <h3>Schedule Exam</h3>
+
+                <p>🗓️</p>
+
+            </a>
+
+            <a href="/upcoming-exams" class="card">
+
+                <h3>Upcoming Exams</h3>
+
+                <p>📋</p>
+
+            </a>
+
+            <a href="/add-fees" class="card">
+
+                <h3>Fees Management</h3>
+
+                <p>💳</p>
+
+            </a>
+
+            <a href="/fees-report" class="card">
+
+                <h3>Fees Report</h3>
+
+                <p>📑</p>
+
+            </a>
+
+            <!-- Analytics -->
+
+            <div class="card analytics-card">
+
+                <h3>Total Students</h3>
+
+                <p>{{ total_students }}</p>
+
+            </div>
+
+            <div class="card analytics-card">
+
+                <h3>Total Classes</h3>
+
+                <p>{{ total_classes }}</p>
+
+            </div>
+
+            <div class="card analytics-card">
+
+                <h3>Total Subjects</h3>
+
+                <p>{{ total_subjects }}</p>
+
+            </div>
+
+            <div class="card analytics-card">
+
+                <h3>Attendance Records</h3>
+
+                <p>{{ total_attendance }}</p>
+
+            </div>
+
+        </div>
+
+        <!-- Charts -->
+
+        <div class="charts-container">
+
+            <div class="chart-card">
+
+                <h2>Students Analytics</h2>
+
+                <canvas id="studentsChart"></canvas>
+
+            </div>
+
+            <div class="chart-card">
+
+                <h2>Attendance Analytics</h2>
+
+                <canvas id="attendanceChart"></canvas>
+
+            </div>
+
+        </div>
+
+               <!-- Recent Attendance -->
+
+        <div class="recent-section">
+
+            <h2>Recent Attendance</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Student</th>
+                    <th>Date</th>
+                    <th>Status</th>
+
+                </tr>
+
+                {% for item in recent_attendance %}
+
+                <tr>
+
+                    <td>{{ item.student_name }}</td>
+
+                    <td>{{ item.attendance_date }}</td>
+
+                    <td>{{ item.status }}</td>
+
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+        <!-- ANNOUNCEMENTS -->
+
+        <div class="recent-section">
+
+            <h2>📢 Latest Announcements</h2>
+
+            {% for item in announcements %}
+
+            <div class="announcement-box">
+
+                <h3>
+
+                    {{ item.title }}
+
+                </h3>
+
+                <p>
+
+                    {{ item.message }}
+
+                </p>
+
+                <small>
+
+                    Posted By:
+                    {{ item.posted_by }}
+
+                </small>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Charts -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const TOTAL_STUDENTS =
+"{{ total_students | default(0) }}";
+
+const TOTAL_CLASSES =
+"{{ total_classes | default(0) }}";
+
+const TOTAL_SUBJECTS =
+"{{ total_subjects | default(0) }}";
+
+const TOTAL_ATTENDANCE =
+"{{ total_attendance | default(0) }}";
+
+const TOTAL_FEES =
+"{{ total_fees | default(0) }}";
+
+</script>
+
+<script src="{{ url_for(
+'static',
+filename='js/charts.js') }}"></script>
+
+<script src="{{ url_for(
+'static',
+filename='js/script.js') }}"></script>
+
+</body>
+</html>

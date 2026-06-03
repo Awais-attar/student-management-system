@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Fees Report</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/attendance.css') }}">
+
+</head>
+
+<body>
+
+<div class="report-container">
+
+    <h1>Fees Report</h1>
+
+    <table>
+
+        <tr>
+
+            <th>Student</th>
+            <th>Class</th>
+            <th>Total Fee</th>
+            <th>Paid</th>
+            <th>Balance Fee</th>
+            <th>Pending</th>
+            <th>Status</th>
+
+        </tr>
+
+        {% for fee in fees %}
+
+        <tr>
+
+            <td>{{ fee.student_name }}</td>
+
+            <td>{{ fee.class_name }}</td>
+
+            <td>{{ fee.total_fee }}</td>
+
+            <td>{{ fee.paid_fee }}</td>
+            <td>
+
+    {{ fee.pending_fee }}
+
+</td>
+
+            <td>{{ fee.pending_fee }}</td>
+
+            <td>{{ fee.status }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>

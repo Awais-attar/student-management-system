@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Add Class</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/students.css') }}">
+
+</head>
+
+<body>
+
+<div class="student-form-container">
+
+    <div class="student-form-card">
+
+        <h1>Add Class</h1>
+
+        <form method="POST">
+
+            <input
+            type="text"
+            name="class_name"
+            placeholder="Class Name"
+            required>
+
+            <input
+            type="text"
+            name="class_teacher"
+            placeholder="Class Teacher"
+            required>
+
+            <input
+            type="number"
+            name="total_students"
+            placeholder="Total Students"
+            required>
+
+            <button type="submit">
+
+                Create Class
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

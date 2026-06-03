@@ -1,0 +1,643 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e3a8a,
+        #2563eb
+    );
+
+    overflow:hidden;
+}
+
+/* Form Container */
+
+.student-form-container{
+
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Form Card */
+
+.student-form-card{
+
+    width:420px;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,0.1);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.2);
+
+    box-shadow:
+    0 8px 32px rgba(0,0,0,0.35);
+
+    animation:fadeIn 0.8s ease;
+}
+
+/* Heading */
+
+.student-form-card h1{
+
+    color:white;
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    font-size:32px;
+}
+
+/* Inputs */
+
+.student-form-card input,
+.student-form-card select{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-bottom:20px;
+
+    border:none;
+    outline:none;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,0.15);
+
+    color:white;
+
+    font-size:16px;
+
+    transition:0.3s;
+}
+
+/* Placeholder */
+
+.student-form-card input::placeholder{
+
+    color:#dbeafe;
+}
+
+/* Select Option */
+
+.student-form-card select option{
+
+    color:black;
+}
+
+/* Input Hover */
+
+.student-form-card input:focus,
+.student-form-card select:focus{
+
+    background:rgba(255,255,255,0.25);
+
+    transform:scale(1.02);
+}
+
+/* Button */
+
+.student-form-card button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#3b82f6;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+/* Button Hover */
+
+.student-form-card button:hover{
+
+    background:#2563eb;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 8px 20px rgba(37,99,235,0.5);
+}
+
+/* Animation */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Student Profile */
+
+.profile-container{
+
+    width:90%;
+
+    margin:auto;
+
+    padding:40px;
+
+    color:white;
+}
+
+.profile-card{
+
+    background:
+    rgba(255,255,255,0.1);
+
+    padding:30px;
+
+    border-radius:20px;
+
+    margin-bottom:30px;
+
+    backdrop-filter:blur(10px);
+}
+
+.profile-card h1{
+
+    margin-bottom:15px;
+}
+
+.attendance-section,
+.marks-section{
+
+    background:
+    rgba(255,255,255,0.08);
+
+    padding:30px;
+
+    border-radius:20px;
+
+    margin-bottom:30px;
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:20px;
+}
+
+table th{
+
+    background:#2563eb;
+
+    padding:15px;
+}
+
+table td{
+
+    padding:15px;
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.1);
+}
+
+/* Profile Button */
+
+.profile-btn{
+
+    text-decoration:none;
+
+    background:#3b82f6;
+
+    color:white;
+
+    padding:10px 14px;
+
+    border-radius:10px;
+
+    transition:0.3s;
+}
+
+.profile-btn:hover{
+
+    background:#2563eb;
+}
+
+/* Edit Button */
+
+.edit-btn{
+
+    text-decoration:none;
+
+    background:#22c55e;
+
+    color:white;
+
+    padding:10px 14px;
+
+    border-radius:10px;
+
+    margin-right:10px;
+
+    transition:0.3s;
+}
+
+.edit-btn:hover{
+
+    background:#16a34a;
+}
+
+/* Delete Button */
+
+.delete-btn{
+
+    text-decoration:none;
+
+    background:#ef4444;
+
+    color:white;
+
+    padding:10px 14px;
+
+    border-radius:10px;
+
+    transition:0.3s;
+}
+
+.delete-btn:hover{
+
+    background:#dc2626;
+}
+
+/* =========================
+   STUDENTS TABLE UI
+========================= */
+
+.table-container{
+
+    width:95%;
+
+    margin:auto;
+
+    margin-top:40px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    box-shadow:
+    0 8px 32px rgba(0,0,0,0.35);
+}
+
+/* Header */
+
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+}
+
+.header h1{
+
+    color:white;
+
+    font-size:34px;
+}
+
+.header a{
+
+    text-decoration:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:14px 20px;
+
+    border-radius:14px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+.header a:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-3px);
+}
+
+/* Search */
+
+.search-form{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:25px;
+}
+
+.search-form input{
+
+    flex:1;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:
+    rgba(255,255,255,0.12);
+
+    color:white;
+
+    font-size:16px;
+
+    outline:none;
+}
+
+.search-form input::placeholder{
+
+    color:#dbeafe;
+}
+
+.search-form button{
+
+    padding:15px 25px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#3b82f6;
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.search-form button:hover{
+
+    background:#2563eb;
+}
+
+/* Table */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    overflow:hidden;
+
+    border-radius:20px;
+}
+
+/* Header Row */
+
+table th{
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:18px;
+
+    text-align:left;
+
+    font-size:16px;
+}
+
+/* Table Data */
+
+table td{
+
+    padding:18px;
+
+    color:#f8fafc;
+
+    background:
+    rgba(255,255,255,0.04);
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.08);
+}
+
+/* Hover */
+
+table tr:hover td{
+
+    background:
+    rgba(59,130,246,0.18);
+
+    transition:0.3s;
+}
+
+/* Buttons */
+
+.profile-btn,
+.edit-btn,
+.delete-btn{
+
+    text-decoration:none;
+
+    padding:10px 14px;
+
+    border-radius:10px;
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+/* Profile */
+
+.profile-btn{
+
+    background:#3b82f6;
+}
+
+.profile-btn:hover{
+
+    background:#2563eb;
+}
+
+/* Edit */
+
+.edit-btn{
+
+    background:#22c55e;
+
+    margin-right:8px;
+}
+
+.edit-btn:hover{
+
+    background:#16a34a;
+}
+
+/* Delete */
+
+.delete-btn{
+
+    background:#ef4444;
+}
+
+.delete-btn:hover{
+
+    background:#dc2626;
+}
+
+/* Announcement UI */
+
+textarea{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:14px;
+
+    resize:none;
+
+    margin-bottom:20px;
+
+    background:
+    rgba(255,255,255,0.12);
+
+    color:white;
+
+    outline:none;
+}
+
+.announcement-container{
+
+    width:90%;
+
+    margin:auto;
+
+    padding:40px;
+}
+
+.announcement-container h1{
+
+    color:white;
+
+    margin-bottom:30px;
+}
+
+.announcement-card{
+
+    background:
+    rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+
+    color:white;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,0.25);
+}
+
+.announcement-card h2{
+
+    margin-bottom:15px;
+}
+
+.announcement-card small{
+
+    display:block;
+
+    margin-top:15px;
+
+    color:#cbd5e1;
+}
+
+
+/* Profile Image */
+
+.profile-image{
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:4px solid #3b82f6;
+
+    margin-bottom:20px;
+}

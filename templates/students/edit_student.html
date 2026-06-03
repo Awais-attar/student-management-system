@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Edit Student</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/students.css') }}">
+
+</head>
+
+<body>
+
+<div class="student-form-container">
+
+    <div class="student-form-card">
+
+        <h1>Edit Student</h1>
+
+        <form method="POST">
+
+            <input
+            type="text"
+            name="full_name"
+            value="{{ student.full_name }}"
+            required>
+
+            <input
+            type="number"
+            name="age"
+            value="{{ student.age }}"
+            required>
+
+            <select name="gender">
+
+                <option>
+
+                    {{ student.gender }}
+
+                </option>
+
+                <option>Male</option>
+
+                <option>Female</option>
+
+            </select>
+
+            <input
+            type="text"
+            name="student_class"
+            value="{{ student.student_class }}"
+            required>
+
+            <input
+            type="text"
+            name="parent_phone"
+            value="{{ student.parent_phone }}"
+            required>
+
+            <button type="submit">
+
+                Update Student
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

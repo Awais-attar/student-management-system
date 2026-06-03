@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Subjects</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/attendance.css') }}">
+
+</head>
+
+<body>
+
+<div class="report-container">
+
+    <h1>Subjects List</h1>
+
+    <table>
+
+        <tr>
+
+            <th>Subject</th>
+            <th>Class</th>
+            <th>Teacher</th>
+
+        </tr>
+
+        {% for subject in subjects %}
+
+        <tr>
+
+            <td>{{ subject.subject_name }}</td>
+
+            <td>{{ subject.class_name }}</td>
+
+            <td>{{ subject.subject_teacher }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>

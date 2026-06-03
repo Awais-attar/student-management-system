@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Student Profile</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/students.css') }}">
+
+</head>
+
+<body>
+
+<div class="profile-container">
+
+    <div class="profile-card">
+        <img
+src="{{ url_for(
+'static',
+filename='uploads/' + student.student_image) }}"
+class="profile-image">
+        <h1>{{ student.full_name }}</h1>
+
+        <h3>Roll No: {{ student.roll_no }}</h3>
+
+        <p>Age: {{ student.age }}</p>
+
+        <p>Gender: {{ student.gender }}</p>
+
+        <p>Class: {{ student.student_class }}</p>
+
+        <p>Parent Phone: {{ student.parent_phone }}</p>
+
+    </div>
+
+    <div class="attendance-section">
+
+        <h2>Attendance Records</h2>
+
+        <table>
+
+            <tr>
+
+                <th>Date</th>
+                <th>Status</th>
+
+            </tr>
+
+            {% for record in attendance_records %}
+
+            <tr>
+
+                <td>{{ record.attendance_date }}</td>
+
+                <td>{{ record.status }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+    <div class="marks-section">
+
+        <h2>Exam Records</h2>
+
+        <table>
+
+            <tr>
+
+                <th>Subject</th>
+                <th>Marks</th>
+                <th>Total</th>
+                <th>Result</th>
+
+            </tr>
+
+            {% for exam in exam_records %}
+
+            <tr>
+
+                <td>{{ exam.subject_name }}</td>
+
+                <td>{{ exam.marks }}</td>
+
+                <td>{{ exam.total_marks }}</td>
+
+                <td>{{ exam.result }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

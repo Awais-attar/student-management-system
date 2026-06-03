@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Exam Report</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/attendance.css') }}">
+
+</head>
+
+<body>
+
+<div class="report-container">
+
+    <h1>Exam Report</h1>
+
+    <h2>
+
+        Pass Percentage:
+        {{ pass_percentage }}%
+
+    </h2>
+
+    <table>
+
+        <tr>
+
+            <th>Student</th>
+            <th>Subject</th>
+            <th>Marks</th>
+            <th>Total</th>
+            <th>Result</th>
+
+        </tr>
+
+        {% for result in results %}
+
+        <tr>
+
+            <td>{{ result.student_name }}</td>
+
+            <td>{{ result.subject_name }}</td>
+
+            <td>{{ result.marks }}</td>
+
+            <td>{{ result.total_marks }}</td>
+
+            <td>{{ result.result }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>

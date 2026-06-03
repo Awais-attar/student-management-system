@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Add Timetable</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/students.css') }}">
+
+</head>
+
+<body>
+
+<div class="student-form-container">
+
+    <div class="student-form-card">
+
+        <h1>Add Timetable</h1>
+
+        <form method="POST">
+
+            <input
+            type="text"
+            name="class_name"
+            placeholder="Class Name"
+            required>
+
+            <input
+            type="text"
+            name="subject_name"
+            placeholder="Subject Name"
+            required>
+
+            <input
+            type="text"
+            name="teacher_name"
+            placeholder="Teacher Name"
+            required>
+
+            <input
+            type="number"
+            name="period_number"
+            placeholder="Period Number"
+            required>
+
+            <input
+            type="text"
+            name="period_time"
+            placeholder="9:00 AM - 10:00 AM"
+            required>
+
+            <button type="submit">
+
+                Add Timetable
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

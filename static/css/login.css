@@ -1,0 +1,168 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI;
+}
+
+body{
+
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1d4ed8,
+        #2563eb
+    );
+}
+
+.login-container{
+
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-card{
+
+    width:400px;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,0.1);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+    0 8px 32px rgba(0,0,0,0.3);
+
+    text-align:center;
+}
+
+.login-card h1{
+
+    color:white;
+    margin-bottom:10px;
+}
+
+.login-card p{
+
+    color:#dbeafe;
+    margin-bottom:25px;
+}
+
+.login-card input{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-bottom:20px;
+
+    border:none;
+    outline:none;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,0.15);
+
+    color:white;
+}
+
+.login-card input::placeholder{
+
+    color:#dbeafe;
+}
+
+.login-card button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#3b82f6;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.login-card button:hover{
+
+    background:#2563eb;
+
+    transform:translateY(-3px);
+}
+
+/* Role Dropdown */
+
+.role-select{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:
+    rgba(255,255,255,0.12);
+
+    color:white;
+
+    margin-bottom:20px;
+
+    outline:none;
+
+    font-size:16px;
+}
+
+.role-select option{
+
+    color:black;
+}
+
+/* Login Link */
+
+.login-link{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:15px;
+}
+
+.login-link a{
+
+    color:#60a5fa;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+.login-link a:hover{
+
+    text-decoration:underline;
+}

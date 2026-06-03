@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Classes</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/attendance.css') }}">
+
+</head>
+
+<body>
+
+<div class="report-container">
+
+    <h1>Classes List</h1>
+
+    <table>
+
+        <tr>
+
+            <th>Class Name</th>
+            <th>Class Teacher</th>
+            <th>Total Students</th>
+
+        </tr>
+
+        {% for class_item in classes %}
+
+        <tr>
+
+            <td>{{ class_item.class_name }}</td>
+
+            <td>{{ class_item.class_teacher }}</td>
+
+            <td>{{ class_item.total_students }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>

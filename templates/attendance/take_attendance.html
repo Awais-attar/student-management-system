@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/attendance.css') }}">
+
+</head>
+
+<body>
+
+<div class="attendance-container">
+
+    <h1>Take Attendance</h1>
+
+    <form method="POST">
+
+        {% for student in students %}
+
+        <div class="attendance-card">
+
+            <h3>
+                {{ student.full_name }}
+                ({{ student.roll_no }})
+            </h3>
+
+            <select
+            name="attendance_{{ student.student_id }}">
+
+                <option value="Present">
+                    Present
+                </option>
+
+                <option value="Absent">
+                    Absent
+                </option>
+
+            </select>
+
+        </div>
+
+        {% endfor %}
+
+        <button type="submit">
+
+            Save Attendance
+
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

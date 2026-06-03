@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Announcements</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/students.css') }}">
+
+</head>
+
+<body>
+
+<div class="announcement-container">
+
+    <h1>Announcements</h1>
+
+    {% for announcement in announcements %}
+
+    <div class="announcement-card">
+
+        <h2>{{ announcement.title }}</h2>
+
+        <p>{{ announcement.message }}</p>
+
+        <small>
+
+            Posted By:
+            {{ announcement.posted_by }}
+
+        </small>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

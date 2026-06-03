@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Add Fees</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/students.css') }}">
+
+</head>
+
+<body>
+
+<div class="student-form-container">
+
+    <div class="student-form-card">
+
+        <h1>Fees Management</h1>
+
+       <form method="POST">
+
+    <input
+    type="text"
+    name="unique_student_id"
+    placeholder="Enter Student ID"
+    required>
+
+    <input
+    type="number"
+    name="total_fee"
+    placeholder="Total Fee"
+    required>
+
+    <input
+    type="number"
+    name="paid_fee"
+    placeholder="Paid Fee"
+    required>
+
+    <button type="submit">
+
+        Save Fee
+
+    </button>
+
+</form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

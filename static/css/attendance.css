@@ -1,0 +1,195 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI;
+}
+
+body{
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e3a8a
+    );
+
+    color:white;
+
+    min-height:100vh;
+
+    padding:40px;
+}
+
+.attendance-container{
+
+    max-width:800px;
+
+    margin:auto;
+}
+
+.attendance-container h1{
+
+    margin-bottom:30px;
+
+    text-align:center;
+}
+
+.attendance-card{
+
+    background:rgba(255,255,255,0.1);
+
+    padding:20px;
+
+    border-radius:15px;
+
+    margin-bottom:20px;
+
+    backdrop-filter:blur(10px);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.attendance-card select{
+
+    padding:10px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+}
+
+button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#3b82f6;
+
+    color:white;
+
+    font-size:16px;
+
+    margin-top:20px;
+
+    cursor:pointer;
+}
+
+button:hover{
+
+    background:#2563eb;
+}
+
+/* Attendance Report */
+
+.report-container{
+
+    width:90%;
+
+    margin:auto;
+
+    padding:40px;
+
+    color:white;
+}
+
+.report-container h1{
+
+    text-align:center;
+
+    margin-bottom:30px;
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:20px;
+
+    overflow:hidden;
+}
+
+table th{
+
+    background:#2563eb;
+
+    padding:18px;
+
+    text-align:left;
+}
+
+table td{
+
+    padding:18px;
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.1);
+}
+
+table tr:hover{
+
+    background:
+    rgba(255,255,255,0.08);
+}
+
+/* PDF Download Button */
+
+.download-btn{
+
+    display:inline-block;
+
+    margin-bottom:25px;
+
+    text-decoration:none;
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    color:white;
+
+    padding:14px 24px;
+
+    border-radius:14px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+
+    box-shadow:
+    0 8px 20px rgba(37,99,235,0.35);
+}
+
+.download-btn:hover{
+
+    transform:translateY(-4px);
+
+    background:
+    linear-gradient(
+        135deg,
+        #1d4ed8,
+        #1e3a8a
+    );
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Register</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/login.css') }}">
+
+    <style>
+
+        .hidden{
+            display:none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="login-card">
+
+        <h1>Register</h1>
+
+        <form method="POST"
+        enctype="multipart/form-data">
+
+            <input
+            type="text"
+            name="full_name"
+            placeholder="Full Name"
+            required>
+
+            <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            required>
+
+            <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required>
+
+            <!-- SUBJECT FIELD -->
+
+            <div id="subjectField">
+
+                <input
+                type="text"
+                name="subject"
+                placeholder="Subject">
+
+            </div>
+
+            <!-- PHONE FIELD -->
+
+            <div id="phoneField">
+
+                <input
+                type="text"
+                name="phone"
+                placeholder="Phone Number">
+
+            </div>
+
+            <!-- TEACHER CODE -->
+
+            <div id="teacherCodeField">
+
+                <input
+                type="text"
+                name="teacher_code"
+                placeholder="Teacher ID">
+
+            </div>
+
+            <!-- IMAGE -->
+
+            <div id="imageField">
+
+                <input
+                type="file"
+                name="teacher_image">
+
+            </div>
+
+            <!-- ROLE -->
+
+            <select
+            name="role"
+            id="role"
+            class="role-select">
+
+                <option value="teacher">
+
+                    👨‍🏫 Teacher
+
+                </option>
+
+                <option value="admin">
+
+                    👑 Admin
+
+                </option>
+
+            </select>
+
+            <button type="submit">
+
+                Register
+
+            </button>
+
+            <div class="login-link">
+
+                Already have account?
+
+                <a href="/">
+
+                    Login
+
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+
+    const role =
+        document.getElementById("role");
+
+    const subjectField =
+        document.getElementById("subjectField");
+
+    const phoneField =
+        document.getElementById("phoneField");
+
+    const teacherCodeField =
+        document.getElementById("teacherCodeField");
+
+    const imageField =
+        document.getElementById("imageField");
+
+    role.addEventListener("change", function(){
+
+        if(role.value === "admin"){
+
+            subjectField.classList.add("hidden");
+
+            phoneField.classList.add("hidden");
+
+            teacherCodeField.classList.add("hidden");
+
+            imageField.classList.add("hidden");
+
+        }
+
+        else{
+
+            subjectField.classList.remove("hidden");
+
+            phoneField.classList.remove("hidden");
+
+            teacherCodeField.classList.remove("hidden");
+
+            imageField.classList.remove("hidden");
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>

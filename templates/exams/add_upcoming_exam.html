@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Add Upcoming Exam</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/students.css') }}">
+
+</head>
+
+<body>
+
+<div class="student-form-container">
+
+    <div class="student-form-card">
+
+        <h1>Schedule Exam</h1>
+
+        <form method="POST">
+
+            <input
+            type="text"
+            name="exam_name"
+            placeholder="Exam Name"
+            required>
+
+            <input
+            type="text"
+            name="subject_name"
+            placeholder="Subject Name"
+            required>
+
+            <input
+            type="date"
+            name="exam_date"
+            required>
+
+            <input
+            type="text"
+            name="exam_time"
+            placeholder="10:00 AM"
+            required>
+
+            <input
+            type="text"
+            name="class_name"
+            placeholder="Class Name"
+            required>
+
+            <button type="submit">
+
+                Schedule Exam
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

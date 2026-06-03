@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Admin Dashboard</title>
+
+    <style>
+
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+
+    background:#0f172a;
+
+    color:white;
+
+    padding:30px;
+}
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-bottom:35px;
+
+    background:#111827;
+
+    padding:20px 25px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 6px 16px rgba(0,0,0,0.25);
+}
+
+.topbar h1{
+
+    font-size:30px;
+
+    color:#3b82f6;
+}
+
+.topbar-buttons{
+
+    display:flex;
+
+    gap:12px;
+}
+
+.logout-btn,
+.add-btn{
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+.logout-btn{
+
+    background:#ef4444;
+}
+
+.logout-btn:hover{
+
+    background:#dc2626;
+}
+
+.add-btn{
+
+    background:#2563eb;
+}
+
+.add-btn:hover{
+
+    background:#1d4ed8;
+}
+
+/* =========================
+   DASHBOARD CARDS
+========================= */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+    margin-bottom:40px;
+}
+
+.card{
+
+    background:#1e293b;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    text-align:center;
+
+    transition:0.3s;
+
+    box-shadow:
+    0 6px 16px rgba(0,0,0,0.25);
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    background:#2563eb;
+}
+
+.card h2{
+
+    font-size:20px;
+
+    margin-bottom:12px;
+}
+
+.card h1{
+
+    font-size:38px;
+}
+
+/* =========================
+   TABLE SECTION
+========================= */
+
+.table-container{
+
+    background:#1e293b;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    overflow-x:auto;
+
+    box-shadow:
+    0 6px 16px rgba(0,0,0,0.25);
+}
+
+.table-title{
+
+    margin-bottom:20px;
+
+    font-size:24px;
+
+    color:#3b82f6;
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+}
+
+table th{
+
+    background:#2563eb;
+
+    padding:16px;
+
+    text-align:center;
+
+    color:white;
+}
+
+table td{
+
+    padding:15px;
+
+    text-align:center;
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.1);
+}
+
+table tr:hover{
+
+    background:
+    rgba(255,255,255,0.05);
+}
+
+/* =========================
+   TEACHER IMAGE
+========================= */
+
+.teacher-img{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:3px solid #3b82f6;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.status-online{
+
+    color:#22c55e;
+
+    font-weight:bold;
+}
+
+.status-offline{
+
+    color:#ef4444;
+
+    font-weight:bold;
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.action-btn{
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:8px 12px;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+    margin:2px;
+
+    display:inline-block;
+
+    transition:0.3s;
+}
+
+.view-btn{
+
+    background:#2563eb;
+}
+
+.view-btn:hover{
+
+    background:#1d4ed8;
+}
+
+.delete-btn{
+
+    background:#ef4444;
+}
+
+.delete-btn:hover{
+
+    background:#dc2626;
+}
+
+.toggle-btn{
+
+    background:#f59e0b;
+}
+
+.toggle-btn:hover{
+
+    background:#d97706;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    body{
+
+        padding:15px;
+    }
+
+    .topbar{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .cards{
+
+        grid-template-columns:1fr;
+    }
+}
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="topbar">
+
+        <h1>👑 Admin Dashboard</h1>
+
+        <a href="/logout" class="logout-btn">
+            Logout
+        </a>
+        <a href="/add-announcement"
+class="logout-btn"
+style="background:#2563eb;">
+
+    Add Announcement
+
+</a>
+
+    </div>
+
+    <!-- CARDS -->
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>Total Teachers</h2>
+            <h1>{{ total_teachers }}</h1>
+        </div>
+
+        <div class="card">
+            <h2>Total Students</h2>
+            <h1>{{ total_students }}</h1>
+        </div>
+
+        <div class="card">
+            <h2>Total Classes</h2>
+            <h1>{{ total_classes }}</h1>
+        </div>
+
+        <div class="card">
+            <h2>Total Subjects</h2>
+            <h1>{{ total_subjects }}</h1>
+        </div>
+
+        <div class="card">
+            <h2>Total Attendance</h2>
+            <h1>{{ total_attendance }}</h1>
+        </div>
+
+        <div class="card">
+            <h2>Total Exams</h2>
+            <h1>{{ total_exams }}</h1>
+        </div>
+
+        <div class="card">
+            <h2>Total Fees</h2>
+            <h1>{{ total_fees }}</h1>
+        </div>
+
+    </div>
+
+    <!-- TEACHERS TABLE -->
+
+    <h2>Teachers Details</h2>
+
+    <div class="table-container">
+
+        <table>
+
+            <tr>
+
+                <th>Image</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Last Login</th>
+                <th>Actions</th>
+
+            </tr>
+
+            {% for teacher in recent_teachers %}
+
+            <tr>
+
+                <td>
+
+                    {% if teacher.teacher_image %}
+
+                    <img
+                        src="{{ url_for('static', filename='uploads/' + teacher.teacher_image) }}"
+                        class="teacher-img"
+                    >
+
+                    {% else %}
+
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                        class="teacher-img"
+                    >
+
+                    {% endif %}
+
+                </td>
+
+                <td>{{ teacher.full_name }}</td>
+
+                <td>{{ teacher.email }}</td>
+
+                <td>
+
+                    {% if teacher.subject %}
+
+                        {{ teacher.subject }}
+
+                    {% else %}
+
+                        Admin
+
+                    {% endif %}
+
+                </td>
+
+                <td>
+
+                    {% if teacher.phone %}
+
+                        {{ teacher.phone }}
+
+                    {% else %}
+
+                        -
+
+                    {% endif %}
+
+                </td>
+
+                <td>{{ teacher.role }}</td>
+
+                <td>
+
+                    {% if teacher.is_online %}
+
+                        <span class="status-online">
+                            Online
+                        </span>
+
+                    {% else %}
+
+                        <span class="status-offline">
+                            Offline
+                        </span>
+
+                    {% endif %}
+
+                </td>
+
+                <td>
+
+                    {% if teacher.last_login %}
+
+                        {{ teacher.last_login }}
+
+                    {% else %}
+
+                        No Login Yet
+
+                    {% endif %}
+
+                </td>
+                <td>
+
+    <a href="/teacher/{{ teacher.teacher_id }}">
+        View
+    </a>
+
+    |
+
+    <a href="/toggle-teacher/{{ teacher.teacher_id }}">
+
+        {% if teacher.status == "Active" %}
+
+            Deactivate
+
+        {% else %}
+
+            Activate
+
+        {% endif %}
+
+    </a>
+
+    |
+
+    <a href="/delete-teacher/{{ teacher.teacher_id }}"
+    onclick="return confirm('Delete Teacher?')">
+
+        Delete
+
+    </a>
+
+</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Add Marks</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/students.css') }}">
+
+</head>
+
+<body>
+
+<div class="student-form-container">
+
+    <div class="student-form-card">
+
+        <h1>Add Exam Marks</h1>
+
+        <form method="POST">
+
+            <input
+            type="text"
+            name="student_name"
+            placeholder="Student Name"
+            required>
+
+            <input
+            type="text"
+            name="subject_name"
+            placeholder="Subject Name"
+            required>
+
+            <input
+            type="number"
+            name="marks"
+            placeholder="Marks Obtained"
+            required>
+
+            <input
+            type="number"
+            name="total_marks"
+            placeholder="Total Marks"
+            required>
+
+            <button type="submit">
+
+                Save Marks
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
