@@ -19,10 +19,10 @@ from reportlab.platypus import (
     Table,
     TableStyle
 )
-
 from flask import send_file
 
 from reportlab.lib import colors
+
 app = Flask(__name__)
 
 UPLOAD_FOLDER = 'static/uploads'
@@ -30,6 +30,10 @@ UPLOAD_FOLDER = 'static/uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 app.secret_key = "student_secret_key"
+
+app.config['SESSION_PERMANENT'] = True
+
+app.config['PERMANENT_SESSION_LIFETIME'] = 86400
 
 app.config.from_object(Config)
 
@@ -422,6 +426,7 @@ def login():
             session['teacher_image'] = teacher.teacher_image
             session['teacher_code'] = teacher.teacher_code
             session['role'] = teacher.role
+            session.permanent = True
 
             # UPDATE ACTIVITY
 
